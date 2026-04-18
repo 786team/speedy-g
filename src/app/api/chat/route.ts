@@ -47,7 +47,7 @@ export async function POST(req: Request) {
   if (!apiKey) {
     return NextResponse.json({
       reply:
-        "(Demo mode — OPENAI_API_KEY not configured on the server. The Speedy G assistant will be live shortly. In the meantime, click 'Book a demo' to talk to the team.)",
+        "The myali.ai assistant is being provisioned. In the meantime, head to /contact and click Deploy Pilot — the team will get back to you within one business day.",
     });
   }
 
