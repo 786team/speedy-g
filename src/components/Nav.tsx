@@ -12,11 +12,20 @@ const NAV_ITEMS: { href: string; label: string }[] = [
 export default function Nav() {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-line bg-bg/80 backdrop-blur-md">
+      {/* NVIDIA-style green accent stripe at the very top */}
+      <div className="h-[3px] w-full bg-gradient-to-r from-nvidia-bright via-nvidia to-nvidia-bright" />
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-6">
         <Link href="/" className="flex items-center gap-2">
           <LogoMark />
           <span className="font-heading text-base font-semibold tracking-tight text-ink">
             myali<span className="text-cta">.ai</span>
+          </span>
+          <span
+            className="ml-1 inline-flex items-center gap-1 rounded-full border border-nvidia/40 bg-nvidia/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.16em] text-nvidia"
+            aria-label="Live"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-nvidia-bright shadow-[0_0_6px_currentColor]" />
+            live
           </span>
         </Link>
 

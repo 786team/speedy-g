@@ -34,6 +34,12 @@ const config: Config = {
         success: "#8DAA91",
         warn: "#D89A3D",
         critical: "#C85D52",
+        // Punchy NVIDIA-style green, tuned warm to fit the palette.
+        // `bright` is for narrow accents (top bar, dots); `DEFAULT` for surfaces.
+        nvidia: {
+          DEFAULT: "#7FA650",
+          bright: "#92C03B",
+        },
         // Borders
         line: {
           DEFAULT: "#D8CCBF",
