@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const COLUMNS: { heading: string; links: { label: string; href: string }[] }[] = [
@@ -41,9 +42,15 @@ export default function Footer() {
   return (
     <footer className="mt-24 border-t border-line bg-bg-section">
       <div className="mx-auto max-w-7xl px-6 py-14">
-        <p className="max-w-3xl text-balance text-base text-ink md:text-lg">
-          <span className="font-heading font-semibold">myali.ai</span> —
-          autonomous disposition and compliance workflows for enterprise reverse
+        <Image
+          src="/myali-logo.jpeg"
+          alt="myali"
+          width={420}
+          height={224}
+          className="h-10 w-auto mix-blend-multiply"
+        />
+        <p className="mt-5 max-w-3xl text-balance text-base text-ink md:text-lg">
+          Autonomous disposition and compliance workflows for enterprise reverse
           logistics.
         </p>
 
