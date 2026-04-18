@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
 
-const DEMO_URL = "https://github.com/786team/hackathon";
+const DEMO_URL = "https://next-liart-eight.vercel.app/";
 
 type State = "idle" | "submitting" | "success" | "error";
 
