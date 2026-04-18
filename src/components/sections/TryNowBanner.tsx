@@ -1,6 +1,6 @@
 import { CTAButton } from "@/components/ui/Button";
 
-const DEMO_URL = "https://next-liart-eight.vercel.app/";
+const DEMO_URL = "https://github.com/786team/hackathon";
 
 export default function TryNowBanner() {
   return (
