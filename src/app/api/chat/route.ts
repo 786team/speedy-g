@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { promises as fs } from "fs";
 import path from "path";
-import OpenAI from "openai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // Run on the Node.js runtime (we read a file from disk)
 export const runtime = "nodejs";
@@ -43,7 +43,8 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "message is required" }, { status: 400 });
   }
 
-  const apiKey = process.env.OPENAI_API_KEY;
+  // Accept either GEMINI_API_KEY (preferred) or GOOGLE_API_KEY (alias)
+  const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY;
   if (!apiKey) {
     return NextResponse.json({
       reply:
@@ -51,26 +52,27 @@ export async function POST(req: Request) {
     });
   }
 
-  const client = new OpenAI({ apiKey });
   const system = await getSystemPrompt();
+  const genAI = new GoogleGenerativeAI(apiKey);
+  const model = genAI.getGenerativeModel({
+    model: "gemini-1.5-flash",
+    systemInstruction: system,
+    generationConfig: {
+      temperature: 0.4,
+      maxOutputTokens: 400,
+    },
+  });
 
-  const messages: { role: "system" | "user" | "assistant"; content: string }[] = [
-    { role: "system", content: system },
-    ...((body.history || []).slice(-10) as ChatMsg[]).map((m) => ({
-      role: m.role,
-      content: m.content,
-    })),
-    { role: "user", content: message },
-  ];
+  // Map our {role: user|assistant} history to Gemini's {role: user|model} format
+  const history = ((body.history || []).slice(-10) as ChatMsg[]).map((m) => ({
+    role: m.role === "assistant" ? "model" : "user",
+    parts: [{ text: m.content }],
+  }));
 
   try {
-    const resp = await client.chat.completions.create({
-      model: "gpt-4o-mini",
-      messages,
-      temperature: 0.4,
-      max_tokens: 400,
-    });
-    const reply = resp.choices[0]?.message?.content?.trim() || "(no reply)";
+    const chat = model.startChat({ history });
+    const result = await chat.sendMessage(message);
+    const reply = result.response.text().trim() || "(no reply)";
     return NextResponse.json({ reply });
   } catch (err: unknown) {
     const detail = err instanceof Error ? err.message : String(err);
