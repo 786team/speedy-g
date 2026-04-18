@@ -16,12 +16,12 @@ export default function Nav() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-6">
         <Link href="/" className="flex items-center gap-3" aria-label="myali home">
           <Image
-            src="/myali-logo.jpeg"
+            src="/myali-logo.png"
             alt="myali"
-            width={420}
-            height={224}
+            width={1146}
+            height={301}
             priority
-            className="h-7 w-auto mix-blend-multiply md:h-8"
+            className="h-7 w-auto md:h-8"
           />
           <span
             className="hidden items-center gap-1 rounded-full border border-cta/30 bg-cta/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.16em] text-cta sm:inline-flex"

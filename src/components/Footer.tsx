@@ -43,11 +43,11 @@ export default function Footer() {
     <footer className="mt-24 border-t border-line bg-bg-section">
       <div className="mx-auto max-w-7xl px-6 py-14">
         <Image
-          src="/myali-logo.jpeg"
+          src="/myali-logo.png"
           alt="myali"
-          width={420}
-          height={224}
-          className="h-10 w-auto mix-blend-multiply"
+          width={1146}
+          height={301}
+          className="h-10 w-auto"
         />
         <p className="mt-5 max-w-3xl text-balance text-base text-ink md:text-lg">
           Autonomous disposition and compliance workflows for enterprise reverse
