@@ -1,17 +1,29 @@
 import Nav from "@/components/Nav";
-import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
+import Hero from "@/components/sections/Hero";
+import Problem from "@/components/sections/Problem";
+import TheClaw from "@/components/sections/TheClaw";
+import WhyFashionFirst from "@/components/sections/WhyFashionFirst";
+import Compliance from "@/components/sections/Compliance";
+import SpeedyGSection from "@/components/sections/SpeedyGSection";
+import PricingPreview from "@/components/sections/PricingPreview";
+import RoadmapPreview from "@/components/sections/RoadmapPreview";
+import FinalCTA from "@/components/sections/FinalCTA";
 
 export default function Home() {
   return (
     <div className="relative min-h-dvh overflow-x-hidden">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[900px] -z-10">
-        <div className="absolute inset-0 bg-grid mask-radial-fade opacity-60" />
-        <div className="absolute inset-0 bg-grid-fade" />
-      </div>
       <Nav />
       <main>
         <Hero />
+        <Problem />
+        <TheClaw />
+        <WhyFashionFirst />
+        <Compliance />
+        <SpeedyGSection />
+        <PricingPreview />
+        <RoadmapPreview />
+        <FinalCTA />
       </main>
       <Footer />
     </div>

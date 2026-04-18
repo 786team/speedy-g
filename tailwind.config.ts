@@ -9,33 +9,46 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Warm light surfaces
         bg: {
-          DEFAULT: "#07080B",
-          elevated: "#0C0E13",
-          subtle: "#12151C",
+          DEFAULT: "#F7F2E8",
+          section: "#EFE5D8",
+          card: "#FFF9F2",
         },
-        line: {
-          DEFAULT: "rgba(255,255,255,0.06)",
-          strong: "rgba(255,255,255,0.12)",
-        },
+        // Text on warm surfaces
         ink: {
-          DEFAULT: "#E8ECF1",
-          muted: "#9BA3B2",
-          faint: "#6B7384",
+          DEFAULT: "#1E1A17",
+          muted: "#5C524B",
+          faint: "#7A6F67",
         },
-        brand: {
-          DEFAULT: "#7C5CFF",
-          accent: "#19E3B1",
-          warn: "#F2B64C",
-          danger: "#FF5C7A",
+        // CTA / brand orange
+        cta: {
+          DEFAULT: "#C96A3D",
+          hover: "#A95531",
         },
-        term: {
-          bg: "#0A0C10",
-          header: "#11141A",
+        // Accent (AI / agent vocabulary)
+        accent: {
+          DEFAULT: "#5C435F",
         },
+        // Status
+        success: "#8DAA91",
+        warn: "#D89A3D",
+        critical: "#C85D52",
+        // Borders
+        line: {
+          DEFAULT: "#D8CCBF",
+          strong: "#C7B8A6",
+        },
+        // Dark console zone (Speedy G section)
+        console: {
+          bg: "#2A2320",
+          card: "#342C29",
+        },
+        "on-dark": "#FFF8F1",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["var(--font-body)", "ui-sans-serif", "system-ui", "sans-serif"],
+        heading: ["var(--font-heading)", "ui-sans-serif", "system-ui", "sans-serif"],
         mono: [
           "var(--font-mono)",
           "ui-monospace",
@@ -45,13 +58,17 @@ const config: Config = {
         ],
       },
       boxShadow: {
-        glow: "0 0 0 1px rgba(124,92,255,0.35), 0 20px 80px -10px rgba(124,92,255,0.35)",
+        card: "0 1px 2px rgba(30,26,23,0.04), 0 8px 32px -12px rgba(30,26,23,0.08)",
+        glow: "0 0 0 1px rgba(201,106,61,0.25), 0 20px 80px -10px rgba(201,106,61,0.25)",
         consoleGlow:
-          "0 0 0 1px rgba(255,255,255,0.06), 0 40px 120px -20px rgba(0,0,0,0.6), 0 0 80px -20px rgba(25,227,177,0.15)",
+          "0 0 0 1px rgba(255,255,255,0.06), 0 40px 120px -20px rgba(0,0,0,0.6), 0 0 80px -20px rgba(141,170,145,0.15)",
       },
       backgroundImage: {
         "grid-fade":
-          "radial-gradient(ellipse 70% 60% at 50% 0%, rgba(124,92,255,0.18), transparent 60%)",
+          "radial-gradient(ellipse 70% 60% at 50% 0%, rgba(201,106,61,0.10), transparent 60%)",
+      },
+      borderRadius: {
+        xl2: "18px",
       },
     },
   },

@@ -1,8 +1,8 @@
-# speedy-g
+# myali.ai (formerly speedy-g)
 
-The AI operator for logistics. Front-end draft for **786team / Speedy G** — a live, Warp-style console for an AI agent that runs fulfillment & supply-chain ops.
+Marketing site for **myali.ai** — the Autonomous Disposition Engine for Reverse Logistics. Built by Team 786. Speedy G now lives as the **operator console section** of the homepage.
 
-This is a design draft, not the production site.
+Deployed to https://speedy-g.vercel.app (production domain `myali.ai` to be pointed at this Vercel project later).
 
 ## Stack
 
@@ -27,19 +27,56 @@ npm run start   # serve production build
 npm run lint    # next lint
 ```
 
+## Routes
+
+* `/` — Home (Hero, Problem, The Claw, Why Fashion First, Compliance, Speedy G console, Pricing preview, Roadmap preview, Final CTA)
+* `/product` — Governed workflows for reverse logistics
+* `/use-cases` — Circular fashion, reverse-logistics teams, liquidation, 3PL
+* `/pricing` — Starter / Usage / Pro / Enterprise + FAQ
+* `/roadmap` — Phase 1 Web App → Phase 2 Control Tower → Phase 3 myali Pod
+* `/trust` — Observability, guardrails, state control, audit trail, integrations
+* `/contact` — Pilot deployment form
+
+## API routes
+
+* `POST /api/chat` — floating chat bubble (`Ask myali`) backed by OpenAI + `KNOWLEDGE.md`. Requires `OPENAI_API_KEY`.
+* `POST /api/contact` — stub that logs the form submission. Replace with Resend / SendGrid / Slack later.
+
 ## Structure
 
 ```
 src/
 ├─ app/
-│  ├─ layout.tsx      # fonts + metadata
-│  ├─ page.tsx        # Nav + Hero + Footer
-│  └─ globals.css     # dark tokens + grid/mask utilities
+│  ├─ layout.tsx               # fonts (Manrope/Inter/IBM Plex Mono) + metadata + ChatBubble mount
+│  ├─ page.tsx                 # composes home sections
+│  ├─ globals.css              # warm-first tokens + utilities
+│  ├─ product/page.tsx
+│  ├─ use-cases/page.tsx
+│  ├─ pricing/page.tsx
+│  ├─ roadmap/page.tsx
+│  ├─ trust/page.tsx
+│  ├─ contact/page.tsx
+│  └─ api/
+│     ├─ chat/route.ts         # OpenAI-backed Q&A grounded in KNOWLEDGE.md
+│     └─ contact/route.ts      # pilot form stub
 └─ components/
-   ├─ Nav.tsx         # sticky glass top nav
-   ├─ Hero.tsx        # headline + CTAs + logo strip (GSAP entrance)
-   ├─ Console.tsx     # Warp-style live console (GSAP timeline)
-   └─ Footer.tsx
+   ├─ Nav.tsx                   # myali.ai wordmark + nav + Deploy Pilot CTA
+   ├─ Footer.tsx                # 4-column footer
+   ├─ PageShell.tsx             # Nav + main + Footer wrapper for sub-pages
+   ├─ ChatBubble.tsx            # floating Ask myali widget
+   ├─ sections/                 # one file per home section
+   │  ├─ Hero.tsx
+   │  ├─ Problem.tsx
+   │  ├─ TheClaw.tsx
+   │  ├─ WhyFashionFirst.tsx
+   │  ├─ Compliance.tsx
+   │  ├─ SpeedyGSection.tsx     # dark zone
+   │  ├─ PricingPreview.tsx
+   │  ├─ RoadmapPreview.tsx
+   │  └─ FinalCTA.tsx
+   └─ ui/                       # primitives
+      ├─ Section.tsx            # Section / Eyebrow / H2 / Lede / Card
+      └─ Button.tsx             # CTAButton variants
 ```
 
 ## Design inspirations

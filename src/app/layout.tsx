@@ -1,34 +1,45 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Manrope, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import ChatBubble from "@/components/ChatBubble";
 
-const inter = Inter({
+const heading = Manrope({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-heading",
   display: "swap",
 });
 
-const mono = JetBrains_Mono({
+const body = Inter({
   subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
   variable: "--font-mono",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Speedy G — The AI operator for logistics.",
+  title:
+    "myali.ai — The Autonomous Disposition Engine for Reverse Logistics",
   description:
-    "Speedy G plugs into your WMS, 3PL, carriers, and ERP — then runs the ops work you hate. Exceptions, routing, returns, EDI, support. One operator. One console. Every order on time.",
+    "myali.ai orchestrates specialized AI agents to identify, value, list, message, and move inventory from a single visual input. Stop letting returns destroy your margin.",
   openGraph: {
-    title: "Speedy G — The AI operator for logistics.",
+    title:
+      "myali.ai — The Autonomous Disposition Engine for Reverse Logistics",
     description:
-      "An AI operator for fulfillment and supply chain ops. Live console. Real work done.",
+      "Autonomous disposition and compliance workflows for enterprise reverse logistics. One photo in. Structured recovery workflow out.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Speedy G — The AI operator for logistics.",
+    title:
+      "myali.ai — The Autonomous Disposition Engine for Reverse Logistics",
     description:
-      "An AI operator for fulfillment and supply chain ops. Live console. Real work done.",
+      "Autonomous disposition and compliance workflows for enterprise reverse logistics. One photo in. Structured recovery workflow out.",
   },
 };
 
@@ -38,8 +49,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${mono.variable}`}>
-      <body className="bg-bg text-ink font-sans antialiased">{children}</body>
+    <html
+      lang="en"
+      className={`${heading.variable} ${body.variable} ${mono.variable}`}
+    >
+      <body className="bg-bg text-ink font-sans antialiased">
+        {children}
+        <ChatBubble />
+      </body>
     </html>
   );
 }

@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --background: #07080B;
-  --foreground: #E8ECF1;
-  color-scheme: dark;
+  --background: #F7F2E8;
+  --foreground: #1E1A17;
+  color-scheme: light;
 }
 
 html,
@@ -15,14 +15,19 @@ body {
 }
 
 body {
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
 *::selection {
-  background: rgba(124, 92, 255, 0.35);
-  color: #fff;
+  background: rgba(201, 106, 61, 0.25);
+  color: #1E1A17;
 }
 
 @layer utilities {
@@ -31,13 +36,20 @@ body {
   }
   .bg-grid {
     background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgba(30, 26, 23, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(30, 26, 23, 0.06) 1px, transparent 1px);
     background-size: 48px 48px;
     background-position: -1px -1px;
   }
   .mask-radial-fade {
     -webkit-mask-image: radial-gradient(ellipse at center, #000 35%, transparent 75%);
     mask-image: radial-gradient(ellipse at center, #000 35%, transparent 75%);
+  }
+  .fade-in {
+    animation: fadeIn 0.5s ease-out both;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }
