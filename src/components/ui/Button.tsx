@@ -19,17 +19,30 @@ export function CTAButton({
   children,
   variant = "primary",
   className = "",
+  external,
 }: {
   href: string;
   children: ReactNode;
   variant?: Variant;
   className?: string;
+  external?: boolean;
 }) {
+  const isExternal = external ?? /^https?:\/\//.test(href);
+  const cls = `inline-flex h-11 items-center rounded-md px-5 text-sm font-medium transition-colors ${VARIANT_CLASS[variant]} ${className}`;
+  if (isExternal) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={cls}
+      >
+        {children}
+      </a>
+    );
+  }
   return (
-    <Link
-      href={href}
-      className={`inline-flex h-11 items-center rounded-md px-5 text-sm font-medium transition-colors ${VARIANT_CLASS[variant]} ${className}`}
-    >
+    <Link href={href} className={cls}>
       {children}
     </Link>
   );

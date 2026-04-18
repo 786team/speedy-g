@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import TryNowBanner from "@/components/sections/TryNowBanner";
 import Hero from "@/components/sections/Hero";
 import Problem from "@/components/sections/Problem";
 import TheClaw from "@/components/sections/TheClaw";
@@ -15,6 +16,7 @@ export default function Home() {
     <div className="relative min-h-dvh overflow-x-hidden">
       <Nav />
       <main>
+        <TryNowBanner />
         <Hero />
         <Problem />
         <TheClaw />

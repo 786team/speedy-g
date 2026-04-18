@@ -69,11 +69,16 @@ export default function Hero() {
           </p>
 
           <div className="anim-cta flex flex-col items-center gap-3 pt-2 sm:flex-row">
-            <CTAButton href="/contact" variant="primary">
-              Deploy Pilot →
+            <CTAButton
+              href="https://next-liart-eight.vercel.app/"
+              external
+              variant="primary"
+              className="!h-12 !px-7 text-base font-semibold shadow-glow"
+            >
+              Try the Live Demo →
             </CTAButton>
             <CTAButton href="/contact" variant="secondary">
-              Analyze Your Inventory
+              Deploy Pilot
             </CTAButton>
           </div>
 
