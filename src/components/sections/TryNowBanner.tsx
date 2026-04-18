@@ -8,8 +8,8 @@ export default function TryNowBanner() {
       className="relative w-full overflow-hidden border-b border-line"
       aria-label="Try the live myali.ai demo"
     >
-      {/* Warm gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-cta via-cta-hover to-accent opacity-95" />
+      {/* NVIDIA-style green gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-r from-nvidia-bright via-nvidia to-success" />
       <div className="absolute inset-0 bg-grid opacity-20 mix-blend-overlay" />
 
       <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-6 py-8 text-center md:flex-row md:gap-8 md:py-10 md:text-left">
