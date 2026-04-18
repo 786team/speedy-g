@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import TryNowBanner from "@/components/sections/TryNowBanner";
 import Hero from "@/components/sections/Hero";
+import TakeItWithYou from "@/components/sections/TakeItWithYou";
 import Problem from "@/components/sections/Problem";
 import TheClaw from "@/components/sections/TheClaw";
 import WhyFashionFirst from "@/components/sections/WhyFashionFirst";
@@ -18,6 +19,7 @@ export default function Home() {
       <main>
         <TryNowBanner />
         <Hero />
+        <TakeItWithYou />
         <Problem />
         <TheClaw />
         <WhyFashionFirst />
